@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <!-- a SessionFactory instance listed as /jndi/name -->
+    <session-factory>
+        <!-- Database Connection Settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/studying</property>
+        <property name="connection.username">admin</property>
+        <property name="connection.password">Admin!@#</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- Names of the annotated entity class-->
+        <mapping class = "transport.company.entity.Company" ></mapping>
+        <mapping class = "transport.company.entity.Employee" ></mapping>
+        <mapping class = "transport.company.entity.Delivery" ></mapping>
+        <mapping class = "transport.company.entity.Vehicle"></mapping>
+        <mapping class = "transport.company.entity.Qualification" ></mapping>
+        <mapping class = "transport.company.entity.Customer" ></mapping>
+    </session-factory>
+</hibernate-configuration>

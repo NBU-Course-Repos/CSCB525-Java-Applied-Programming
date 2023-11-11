@@ -1,12 +1,14 @@
 package com.example.housemanager.persistence.service;
 
 import com.example.housemanager.persistence.model.BuildingManager;
-import com.example.housemanager.persistence.model.BuildingManagerId;
+import com.example.housemanager.persistence.model.composite.BuildingManagerId;
 import com.example.housemanager.persistence.repository.BuildingManagerRepository;
+import org.springframework.stereotype.Service;
 
-public class BuildingManagerService extends AbstractEntityService<BuildingManager, BuildingManagerRepository> {
+@Service
+public class BuildingManagerService extends AbstractEntityService<BuildingManager, BuildingManagerId, BuildingManagerRepository> {
     @Override
     protected BuildingManagerId getEntityId(BuildingManager entry) {
-        return new BuildingManagerId(entry.getCompany(), entry.getEmployeeNumber());
+        return entry.getId();
     }
 }

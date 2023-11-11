@@ -1,5 +1,6 @@
 package com.example.housemanager.persistence.model;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 public class Company {
 
     @Id
+    @Column(nullable = false)
     private String name;
 
     @OneToMany
@@ -19,7 +21,11 @@ public class Company {
         this.managers = managers;
     }
 
-    public Company() {
+    public Company(String name) {
+        this.name = name;
+    }
+
+    protected Company() {
     }
 
     public String getName() {

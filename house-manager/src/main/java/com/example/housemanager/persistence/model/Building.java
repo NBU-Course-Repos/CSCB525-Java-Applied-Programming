@@ -1,7 +1,6 @@
 package com.example.housemanager.persistence.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.BatchSize;
 
 import java.util.List;
 
@@ -25,7 +24,6 @@ public class Building {
     @Column(name = "security_guard")
     private Boolean hasSecurityGuard;
     @ManyToOne
-    @Column(name = "building_manager")
     private BuildingManager buildingManager;
 
     public Building(String address, Integer floors, List<Apartment> apartments, Double sharedSpace, Boolean hasSecurityGuard, BuildingManager buildingManager) {

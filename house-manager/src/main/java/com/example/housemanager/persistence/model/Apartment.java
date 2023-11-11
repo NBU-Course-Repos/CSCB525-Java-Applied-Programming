@@ -1,19 +1,13 @@
 package com.example.housemanager.persistence.model;
 
+import com.example.housemanager.persistence.model.composite.ApartmentId;
 import jakarta.persistence.*;
 
 @Entity
-@IdClass(ApartmentId.class)
 public class Apartment {
 
-    @Id
-    @Column(name = "number", nullable = false)
-    private Long number;
-
-    @Id
-    @ManyToOne
-    @Column(nullable = false)
-    private Building building;
+    @EmbeddedId
+    private ApartmentId id;
 
     @Column
     private String owner;
@@ -25,22 +19,13 @@ public class Apartment {
     private Double propertyTax;
 
     public Apartment(Long number, Building building, String owner, Integer inhabitants, Double propertyTax) {
-        this.number = number;
-        this.building = building;
+        this.id = new ApartmentId(number, building);
         this.owner = owner;
         this.inhabitants = inhabitants;
         this.propertyTax = propertyTax;
     }
 
     public Apartment() {
-    }
-
-    public Long getNumber() {
-        return number;
-    }
-
-    public Building getBuilding() {
-        return building;
     }
 
     public String getOwner() {

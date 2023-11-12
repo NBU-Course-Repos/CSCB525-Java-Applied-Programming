@@ -12,7 +12,7 @@ public class BuildingManager {
     private BuildingManagerId id;
 
     @OneToMany
-    @Column(name = "managed_buildings")
+    @JoinColumn(name = "managed_buildings")
     private List<Building> managedBuildings;
 
     public BuildingManager(List<Building> managedBuildings) {

@@ -26,7 +26,6 @@ public abstract class AbstractEntityService<T, ID, R extends CrudRepository> {
 
     @Autowired
     protected R repository;
-
     private static final Logger logger = LoggerFactory.getLogger("Persistence");
     private static final String GENERIC_EXCEPTION_MESSAGE = "Exception thrown during operation:";
 

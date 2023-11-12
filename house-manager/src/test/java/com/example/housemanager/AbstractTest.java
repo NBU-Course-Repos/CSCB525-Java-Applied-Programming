@@ -4,7 +4,7 @@ import com.example.housemanager.persistence.service.ApartmentService;
 import com.example.housemanager.persistence.service.BuildingManagerService;
 import com.example.housemanager.persistence.service.BuildingService;
 import com.example.housemanager.persistence.service.CompanyService;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AbstractTest {
@@ -21,13 +21,11 @@ public abstract class AbstractTest {
     @Autowired
     protected ApartmentService apartmentService;
 
-    @BeforeEach
+    @AfterEach
     void cleanUp() {
         companyService.deleteAll();
         buildingService.deleteAll();
         buildingManagerService.deleteAll();
         apartmentService.deleteAll();
     }
-
-
 }

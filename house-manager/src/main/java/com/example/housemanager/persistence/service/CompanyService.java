@@ -7,10 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CompanyService extends AbstractEntityService<Company, String, CompanyRepository> {
-
-    @Autowired
-    protected CompanyRepository repository;
-
     @Override
     protected String getEntityId(Company company) {
         return company.getName();

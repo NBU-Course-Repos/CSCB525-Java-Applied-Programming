@@ -28,6 +28,10 @@ public class Apartment {
     public Apartment() {
     }
 
+    public ApartmentId getId() {
+        return id;
+    }
+
     public String getOwner() {
         return owner;
     }

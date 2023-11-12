@@ -1,5 +1,6 @@
 package com.example.housemanager.persistence.model;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -24,12 +25,12 @@ public class Building {
     @Column(name = "security_guard")
     private Boolean hasSecurityGuard;
     @ManyToOne
+    @JoinColumn(nullable = false, name = "building_manager")
     private BuildingManager buildingManager;
 
-    public Building(String address, Integer floors, List<Apartment> apartments, Double sharedSpace, Boolean hasSecurityGuard, BuildingManager buildingManager) {
+    public Building(String address, Integer floors, Double sharedSpace, Boolean hasSecurityGuard, BuildingManager buildingManager) {
         this.address = address;
         this.floors = floors;
-        this.apartments = apartments;
         this.sharedSpace = sharedSpace;
         this.hasSecurityGuard = hasSecurityGuard;
         this.buildingManager = buildingManager;
@@ -58,31 +59,16 @@ public class Building {
         return apartments;
     }
 
-    public void setApartments(List<Apartment> apartments) {
-        this.apartments = apartments;
-    }
-
     public Double getSharedSpace() {
         return sharedSpace;
     }
 
-    public void setSharedSpace(Double sharedSpace) {
-        this.sharedSpace = sharedSpace;
-    }
 
     public Boolean getHasSecurityGuard() {
         return hasSecurityGuard;
     }
 
-    public void setHasSecurityGuard(Boolean hasSecurityGuard) {
-        this.hasSecurityGuard = hasSecurityGuard;
-    }
-
     public BuildingManager getBuildingManager() {
         return buildingManager;
-    }
-
-    public void setBuildingManager(BuildingManager buildingManager) {
-        this.buildingManager = buildingManager;
     }
 }

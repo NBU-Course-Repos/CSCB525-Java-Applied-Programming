@@ -1,10 +1,7 @@
 package com.example.housemanager.persistence.model.composite;
 
 import com.example.housemanager.persistence.model.Building;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -14,7 +11,7 @@ public class ApartmentId implements Serializable {
     @Column
     private Long number;
 
-    @JoinColumn
+    @JoinColumn(name = "building")
     @ManyToOne
     private Building building;
 

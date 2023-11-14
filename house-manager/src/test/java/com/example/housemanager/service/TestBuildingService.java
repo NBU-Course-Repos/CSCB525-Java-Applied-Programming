@@ -25,8 +25,7 @@ public class TestBuildingService extends AbstractTest {
                         address,
                         7,
                         10.5,
-                        true,
-                        manager
+                        true
                 )
         );
 

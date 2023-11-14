@@ -1,7 +1,8 @@
 package com.example.housemanager.persistence.model;
 
-import jakarta.annotation.Nullable;
+import com.example.housemanager.persistence.model.composite.BuildingManagerId;
 import jakarta.persistence.*;
+import org.hibernate.tool.schema.extract.internal.ForeignKeyInformationImpl;
 
 import java.util.List;
 
@@ -11,29 +12,27 @@ public class Building {
     @Id
     @Column(nullable = false)
     private String address;
-
     @Column
     private Integer floors;
-
     @OneToMany
     @Column
     private List<Apartment> apartments;
-
     @Column(name = "shared_space")
     private Double sharedSpace;
 
     @Column(name = "security_guard")
     private Boolean hasSecurityGuard;
     @ManyToOne
-    @JoinColumn(nullable = false, name = "building_manager")
+    @JoinColumns({
+            @JoinColumn(name = "company", referencedColumnName = "company_name"),
+            @JoinColumn(name = "building_manager", referencedColumnName = "employee_number")})
     private BuildingManager buildingManager;
 
-    public Building(String address, Integer floors, Double sharedSpace, Boolean hasSecurityGuard, BuildingManager buildingManager) {
+    public Building(String address, Integer floors, Double sharedSpace, Boolean hasSecurityGuard) {
         this.address = address;
         this.floors = floors;
         this.sharedSpace = sharedSpace;
         this.hasSecurityGuard = hasSecurityGuard;
-        this.buildingManager = buildingManager;
     }
 
     public Building() {

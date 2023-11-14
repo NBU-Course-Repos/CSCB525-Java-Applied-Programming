@@ -23,9 +23,9 @@ public abstract class AbstractTest {
 
     @AfterEach
     void cleanUp() {
-        companyService.deleteAll();
+        apartmentService.deleteAll();
         buildingService.deleteAll();
         buildingManagerService.deleteAll();
-        apartmentService.deleteAll();
+        companyService.deleteAll();
     }
 }

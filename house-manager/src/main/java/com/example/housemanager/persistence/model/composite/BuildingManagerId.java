@@ -9,11 +9,11 @@ import java.io.Serializable;
 public class BuildingManagerId implements Serializable {
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "company_name", referencedColumnName = "name")
     private Company company;
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column
+    @Column(name = "employee_number")
     private int employeeNumber;
 
     public BuildingManagerId(Company company) {

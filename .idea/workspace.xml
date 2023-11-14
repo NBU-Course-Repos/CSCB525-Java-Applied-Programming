@@ -1,25 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="67706749-81d2-47c2-9281-01c3918b9652" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BookStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-BG.md" beforeDir="false" />
+    <list default="true" id="67706749-81d2-47c2-9281-01c3918b9652" name="Changes" comment="Completed Company and BuildingManager entities. Wrote some tests">
+      <change afterPath="$PROJECT_DIR$/Homeworks.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java Exam 1.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/TaxRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/service/TaxRecordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/CSCB525-Java-Applied-Programming.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/Homework1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/src/Book.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/src/BookStore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework1/task-BG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework2/Homework2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework2/src/Checkpoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework2/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework2/src/Vehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework2/src/task2-BG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework2/task1-BG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/src/PlasticGoods.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/src/PlasticGoodsManufacturer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Homework3/task2-BG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Exam 1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Exam 1/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Exam 1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Exam 1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Exam 1/Antonio_Busuladzich_F95476.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Exam 1/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Exam 1/src/OrderType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Exam 1/src/PhotoStudio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Exam 1/src/Picture.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java Exam 1/task.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/Project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/dataSources/fab527a1-d03e-4fd7-92b5-4b0a4c20ae3c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/dataSources/fab527a1-d03e-4fd7-92b5-4b0a4c20ae3c/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/dataSources/fab527a1-d03e-4fd7-92b5-4b0a4c20ae3c/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/dataSources/fab527a1-d03e-4fd7-92b5-4b0a4c20ae3c/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/dataSources/fab527a1-d03e-4fd7-92b5-4b0a4c20ae3c/storage_v2/_src_/schema/project.GUuQ7Q.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/dataSources/fab527a1-d03e-4fd7-92b5-4b0a4c20ae3c/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/Project.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/config/SessionFactoryUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/dao/CompanyDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/dao/CustomerDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/dao/DAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/dao/DeliveryDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/dao/EmployeeDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/dao/TemplateDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/dao/VehicleDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/dto/CompanyDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/entity/Company.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/entity/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/entity/Delivery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/entity/DeliveryOf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/entity/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/entity/Qualification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/entity/QualificationType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/entity/Vehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/entity/VehicleType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/exceptions/EntityAttributeNull.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/exceptions/NullWeightOnCargo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/transport/company/exceptions/TransportingZeroPeople.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/resources/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/resources/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/target/classes/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/target/classes/hibernate.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/target/classes/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/HouseManagerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/HouseManagerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/Apartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/Apartment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/BuildingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/BuildingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/Tax.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/TaxId.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/composite/TaxId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/composite/ApartmentId.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/composite/ApartmentId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/composite/BuildingManagerId.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/model/composite/BuildingManagerId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/repository/TaxRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/repository/TaxRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/java/com/example/housemanager/persistence/service/TaxService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/test/java/com/example/housemanager/AbstractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/test/java/com/example/housemanager/AbstractTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/house-manager/src/test/java/com/example/housemanager/service/TestBuildingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-manager/src/test/java/com/example/housemanager/service/TestBuildingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="bql089gz" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -29,9 +141,112 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/NBU/CSCB525-Java-Applied-Programming&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.haulmont.jpb.dtoDeclaration&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;f991ebacb91d30d7371523b796b3de2a&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;h2&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\NBU\CSCB525-Java-Applied-Programming\house-manager\src\main\resources\home" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.housemanager.persistence" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.HouseManagerApplication">
+    <configuration name="TestBuildingManagerService.saveBuildingManager" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="house-manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.housemanager.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.housemanager.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.housemanager.service.TestBuildingManagerService" />
+      <option name="METHOD_NAME" value="saveBuildingManager" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCompanyService.findAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="house-manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.housemanager.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.housemanager.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.housemanager.service.TestCompanyService" />
+      <option name="METHOD_NAME" value="findAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCompanyService.saveCompany" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="house-manager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.housemanager.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.housemanager.service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.housemanager.service.TestCompanyService" />
+      <option name="METHOD_NAME" value="saveCompany" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HouseManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="house-manager" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.housemanager.HouseManagerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestBuildingManagerService.saveBuildingManager" />
+        <item itemvalue="JUnit.TestCompanyService.findAll" />
+        <item itemvalue="JUnit.TestCompanyService.saveCompany" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -41,7 +256,57 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669058201764</updated>
+      <workItem from="1697986763855" duration="11671000" />
+      <workItem from="1699192134755" duration="2890000" />
+      <workItem from="1699301107828" duration="1027000" />
+      <workItem from="1699302699880" duration="2774000" />
+      <workItem from="1699691744192" duration="10030000" />
+      <workItem from="1699710525912" duration="2399000" />
+      <workItem from="1699799131173" duration="6507000" />
+      <workItem from="1699811527078" duration="522000" />
+      <workItem from="1699812319315" duration="728000" />
+      <workItem from="1699814853053" duration="2423000" />
+      <workItem from="1699821747404" duration="1599000" />
+      <workItem from="1699823863999" duration="1664000" />
+      <workItem from="1699860434191" duration="731000" />
+      <workItem from="1699899633497" duration="33000" />
+      <workItem from="1699910915833" duration="268000" />
+      <workItem from="1699911299330" duration="3675000" />
     </task>
+    <task id="LOCAL-00001" summary="Initialized home manager project and completed the base persistence models and CUD services">
+      <created>1698001087151</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698001087151</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Completed Company and BuildingManager entities. Wrote some tests">
+      <created>1699718487494</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699718487494</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initialized home manager project and completed the base persistence models and CUD services" />
+    <MESSAGE value="Completed Company and BuildingManager entities. Wrote some tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed Company and BuildingManager entities. Wrote some tests" />
   </component>
 </project>

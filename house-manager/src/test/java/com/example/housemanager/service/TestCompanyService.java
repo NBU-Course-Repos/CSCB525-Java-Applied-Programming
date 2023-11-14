@@ -6,18 +6,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Iterator;
-import java.util.Optional;
 
 @SpringBootTest
 public class TestCompanyService extends AbstractTest {
 
     @Test
     void saveCompany() {
-        final String companyName = "company1";
-        companyService.save(new Company(companyName));
-        Optional<Company> company = companyService.findById(companyName);
-        assert (company.isPresent());
-        assert (company.get().getName().equals(companyName));
+        Company company = prepareCompany();
+
+        assert (companyService.findById(company.getId()).isPresent());
+        assert (companyService.findById(company.getId()).get().getName().equals("Company"));
     }
 
     @Test
@@ -27,5 +25,25 @@ public class TestCompanyService extends AbstractTest {
         Iterator<Company> companies = companyService.findAll().iterator();
         assert (companies.next().getName().equals("company1"));
         assert (companies.next().getName().equals("company2"));
+    }
+
+    @Test
+    void deleteCompany() {
+        Company company = prepareCompany();
+        assert (companyService.findById(company.getId()).isPresent());
+
+        companyService.delete(company);
+        assert (companyService.findById(company.getId()).isEmpty());
+    }
+
+    @Test
+    void updateCompany() {
+        Company company = prepareCompany();
+        assert (company.getName().equals("Company"));
+
+        company.setName("Company2");
+        companyService.update(company);
+        assert (companyService.findById(company.getId())).isPresent();
+        assert (companyService.findById(company.getId()).get().getName().equals("Company2"));
     }
 }

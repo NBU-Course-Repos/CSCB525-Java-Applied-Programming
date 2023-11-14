@@ -31,7 +31,7 @@ public abstract class AbstractEntityService<T, ID, R extends CrudRepository> {
 
     public void save(T entry) {
         ID entityId = getEntityId(entry);
-        if (repository.existsById(entityId))
+        if (entityId != null && repository.existsById(entityId))
             logger.error(GENERIC_EXCEPTION_MESSAGE, new EntryAlreadyExists(entityId, entry.getClass()));
         else
             repository.save(entry);

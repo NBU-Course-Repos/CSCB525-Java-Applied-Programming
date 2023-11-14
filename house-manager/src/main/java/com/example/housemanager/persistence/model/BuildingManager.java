@@ -10,8 +10,11 @@ public class BuildingManager {
 
     @EmbeddedId
     private BuildingManagerId id;
-    @OneToMany(mappedBy = "buildingManager")// TODO Consider adding orphanRemoval = true
+    @OneToMany(mappedBy = "buildingManager")
     private Set<Building> managedBuildings;
+
+    @Column(name = "emloyment_time")
+    private int yearsInCompany = 0;
 
     public BuildingManagerId getId() {
         return id;
@@ -22,5 +25,13 @@ public class BuildingManager {
     }
 
     public BuildingManager() {
+    }
+
+    public int getYearsInCompany() {
+        return yearsInCompany;
+    }
+
+    public void setYearsInCompany(int yearsInCompany) {
+        this.yearsInCompany = yearsInCompany;
     }
 }

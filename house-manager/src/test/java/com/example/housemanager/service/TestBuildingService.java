@@ -25,7 +25,8 @@ public class TestBuildingService extends AbstractTest {
                         address,
                         7,
                         10.5,
-                        true
+                        true,
+                        manager
                 )
         );
 
@@ -33,5 +34,26 @@ public class TestBuildingService extends AbstractTest {
         assert (building.isPresent());
         assert (building.get().getAddress().equals(address));
         assert (building.get().getFloors().equals(7));
+        assert (building.get().getBuildingManager().getId().getEmployeeNumber() == (manager.getId().getEmployeeNumber()));
+    }
+
+    @Test
+    void deleteBuilding() {
+        Building building = prepareBuilding();
+        assert (buildingService.findById(building.getAddress()).isPresent());
+
+        buildingService.delete(building);
+        assert (buildingService.findById(building.getAddress()).isEmpty());
+    }
+
+    @Test
+    void updateBuilding() {
+        Building building = prepareBuilding();
+        assert (building.getHasSecurityGuard().equals(false));
+
+        building.setHasSecurityGuard(true);
+        buildingService.update(building);
+        assert (buildingService.findById(building.getAddress()).isPresent());
+        assert (buildingService.findById(building.getAddress()).get().getHasSecurityGuard().equals(true));
     }
 }

@@ -22,20 +22,26 @@ public class Building {
 
     @Column(name = "security_guard")
     private Boolean hasSecurityGuard;
+
     @ManyToOne
     @JoinColumns({
             @JoinColumn(name = "company", referencedColumnName = "company_name"),
             @JoinColumn(name = "building_manager", referencedColumnName = "employee_number")})
     private BuildingManager buildingManager;
 
-    public Building(String address, Integer floors, Double sharedSpace, Boolean hasSecurityGuard) {
+    public Building(String address, Integer floors, Double sharedSpace, Boolean hasSecurityGuard, BuildingManager manager) {
         this.address = address;
         this.floors = floors;
         this.sharedSpace = sharedSpace;
         this.hasSecurityGuard = hasSecurityGuard;
+        this.buildingManager = manager;
     }
 
     public Building() {
+    }
+
+    public Building(String address) {
+        this.address = address;
     }
 
     public String getAddress() {
@@ -62,12 +68,23 @@ public class Building {
         return sharedSpace;
     }
 
-
     public Boolean getHasSecurityGuard() {
         return hasSecurityGuard;
     }
 
     public BuildingManager getBuildingManager() {
         return buildingManager;
+    }
+
+    public void setSharedSpace(Double sharedSpace) {
+        this.sharedSpace = sharedSpace;
+    }
+
+    public void setHasSecurityGuard(Boolean hasSecurityGuard) {
+        this.hasSecurityGuard = hasSecurityGuard;
+    }
+
+    public void setBuildingManager(BuildingManager buildingManager) {
+        this.buildingManager = buildingManager;
     }
 }

@@ -11,4 +11,6 @@ public class BuildingManagerService extends AbstractEntityService<BuildingManage
     protected BuildingManagerId getEntityId(BuildingManager entry) {
         return entry.getId();
     }
+
+    // TODO override delete to redistribute the manager's buildings
 }

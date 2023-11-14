@@ -1,6 +1,5 @@
 package com.example.housemanager.persistence.model;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -9,7 +8,10 @@ import java.util.List;
 public class Company {
 
     @Id
-    @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String bulstat;
+
+    @Column(nullable = false, unique = true)
     private String name;
 
     @OneToMany
@@ -26,6 +28,10 @@ public class Company {
     }
 
     protected Company() {
+    }
+
+    public String getId() {
+        return bulstat;
     }
 
     public String getName() {

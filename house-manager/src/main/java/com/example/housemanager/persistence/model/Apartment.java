@@ -47,4 +47,20 @@ public class Apartment {
     public Double getPropertyTax() {
         return propertyTax;
     }
+
+    public void setId(ApartmentId id) {
+        this.id = id;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public void setInhabitants(Integer inhabitants) {
+        this.inhabitants = inhabitants;
+    }
+
+    public void setPropertyTax(Double propertyTax) {
+        this.propertyTax = propertyTax;
+    }
 }

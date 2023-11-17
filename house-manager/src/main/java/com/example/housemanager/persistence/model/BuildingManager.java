@@ -34,4 +34,8 @@ public class BuildingManager {
     public void setYearsInCompany(int yearsInCompany) {
         this.yearsInCompany = yearsInCompany;
     }
+
+    public Set<Building> getManagedBuildings() {
+        return managedBuildings;
+    }
 }

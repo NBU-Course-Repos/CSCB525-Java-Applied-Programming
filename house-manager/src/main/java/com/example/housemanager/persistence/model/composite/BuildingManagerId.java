@@ -4,6 +4,7 @@ import com.example.housemanager.persistence.model.Company;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @Embeddable
 public class BuildingManagerId implements Serializable {
@@ -12,12 +13,12 @@ public class BuildingManagerId implements Serializable {
     @JoinColumn(name = "company_name", referencedColumnName = "name")
     private Company company;
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "employee_number")
-    private int employeeNumber;
+    @Column(name = "employee_number", unique = true)
+    private UUID employeeNumber;
 
     public BuildingManagerId(Company company) {
         this.company = company;
+        employeeNumber = UUID.randomUUID();
     }
 
     public BuildingManagerId() {
@@ -27,7 +28,7 @@ public class BuildingManagerId implements Serializable {
         return company;
     }
 
-    public int getEmployeeNumber() {
+    public UUID getEmployeeNumber() {
         return employeeNumber;
     }
 }

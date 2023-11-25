@@ -10,7 +10,7 @@ public class BuildingManager {
 
     @EmbeddedId
     private BuildingManagerId id;
-    @OneToMany(mappedBy = "buildingManager")
+    @OneToMany(mappedBy = "buildingManager", fetch = FetchType.EAGER)
     private Set<Building> managedBuildings;
 
     @Column(name = "emloyment_time")

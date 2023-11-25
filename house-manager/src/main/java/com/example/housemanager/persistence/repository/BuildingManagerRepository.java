@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BuildingManagerRepository extends CrudRepository<BuildingManager, BuildingManagerId> {
 
+    BuildingManager findFirstById_CompanyOrderByManagedBuildingsAsc(Company company);
+
     BuildingManager findFirstByIdNotAndId_CompanyOrderByManagedBuildingsAsc(BuildingManagerId id, Company company);
-    //TODO Test when deleting Manager and when his buildings are re-distributed equality amongst other managers
 }

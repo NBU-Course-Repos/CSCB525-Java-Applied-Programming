@@ -1,8 +1,7 @@
 package com.example.housemanager.persistence.model;
 
-import com.example.housemanager.persistence.model.composite.BuildingManagerId;
 import jakarta.persistence.*;
-import org.hibernate.tool.schema.extract.internal.ForeignKeyInformationImpl;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

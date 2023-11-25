@@ -9,7 +9,9 @@ import com.example.housemanager.persistence.repository.BuildingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.html.Option;
 import java.util.Iterator;
 import java.util.Optional;
 
@@ -24,20 +26,30 @@ public class BuildingManagerService extends AbstractEntityService<BuildingManage
         return entry.getId();
     }
 
-    public BuildingManager managerWithFewestBuildings(FewestBuildingsManagerRequest request) {
-        // TODO pass an optional BuildingManager to ignore in the search
-        return repository.findFirstByIdNotAndId_CompanyOrderByManagedBuildingsAsc(request.company);
+    public BuildingManager managerWithFewestBuildings(Company company) {
+        return repository.findFirstById_CompanyOrderByManagedBuildingsAsc(company);
     }
 
     @Override
     public void delete(BuildingManager entry) {
-        Iterator<Building> buildings = entry.getManagedBuildings().iterator();
-        Company managerCompany = entry.getId().getCompany();
+
+        Optional<BuildingManager> manager = findById(entry.getId());
+        if (manager.isEmpty())
+            return;
+
+        Iterator<Building> buildings = manager.get().getManagedBuildings().iterator();
+        Company company = entry.getId().getCompany();
+
         while (buildings.hasNext()) {
             Building building = buildings.next();
-            building.setBuildingManager(managerWithFewestBuildings(new FewestBuildingsManagerRequest(managerCompany, entry)));
+            building.setBuildingManager(managerWithFewestBuildingsExcluding(company, entry));
             buildingService.update(building);
         }
+
         repository.delete(entry);
+    }
+
+    private BuildingManager managerWithFewestBuildingsExcluding(Company company, BuildingManager manager) {
+        return repository.findFirstByIdNotAndId_CompanyOrderByManagedBuildingsAsc(manager.getId(), company);
     }
 }

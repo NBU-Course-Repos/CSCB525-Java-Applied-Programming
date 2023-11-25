@@ -8,7 +8,6 @@ import com.example.housemanager.persistence.model.Company;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest
@@ -55,11 +54,15 @@ public class TestBuildingManagerService extends AbstractTest {
         buildingService.save(building);
 
         BuildingManager fewestBuildingsManager = buildingManagerService.managerWithFewestBuildings(company);
-        assert (fewestBuildingsManager.getId().getEmployeeNumber() == manager2.getId().getEmployeeNumber());
+        assert (fewestBuildingsManager.getId().getEmployeeNumber()).equals(manager2.getId().getEmployeeNumber());
 
         building.setBuildingManager(manager2);
         buildingService.update(building);
         BuildingManager newFewestBuildingsManager = buildingManagerService.managerWithFewestBuildings(company);
-        assert (newFewestBuildingsManager.getId().getEmployeeNumber() == manager1.getId().getEmployeeNumber());
+        assert (newFewestBuildingsManager.getId().getEmployeeNumber()).equals(manager1.getId().getEmployeeNumber());
+
+        buildingManagerService.delete(manager2);
+        BuildingManager lastFewestBuildingManager = buildingManagerService.managerWithFewestBuildings(company);
+        assert (lastFewestBuildingManager.getId().getEmployeeNumber()).equals(manager1.getId().getEmployeeNumber());
     }
 }

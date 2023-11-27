@@ -9,7 +9,8 @@ public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    UUID serialNumber;
+    @Column(name = "vehicle_identification_number")
+    UUID VIN;
 
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
@@ -22,8 +23,8 @@ public class Vehicle {
     public Vehicle() {
     }
 
-    public UUID getSerialNumber() {
-        return serialNumber;
+    public UUID getVehicleNumber() {
+        return VIN;
     }
 
     public VehicleType getType() {

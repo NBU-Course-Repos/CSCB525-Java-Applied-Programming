@@ -23,10 +23,13 @@ public class Driver {
     @JoinColumn(nullable = false)
     Company employer;
 
+    @OneToOne
+    @JoinColumn
+    Vehicle vehicle;
+
     @ElementCollection
     @Enumerated(EnumType.STRING)
-    @CollectionTable(name = "Specialisations",
-            joinColumns = @JoinColumn(name = "unified_civil_number"))
+    @CollectionTable
     Set<Specialisation> specialisations = Set.of(Specialisation.DEFAULT);
 
     public void setFirstName(String firstName) {
@@ -45,7 +48,13 @@ public class Driver {
         specialisations.add(spec);
     }
 
-    protected Driver() {
+    public Driver() {
+    }
+
+    public Driver(String firstName, String lastName, Company employer) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.employer = employer;
     }
 
     public UUID getUCN() {

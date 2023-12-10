@@ -1,6 +1,6 @@
 package com.example.transportcompany.model;
 
-public enum RequestFor {
+public enum RequestType {
     FREIGHT,
     CHAUFFEUR
 }

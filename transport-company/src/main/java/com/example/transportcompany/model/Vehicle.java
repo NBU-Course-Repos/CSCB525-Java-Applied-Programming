@@ -20,6 +20,9 @@ public class Vehicle {
     @JoinColumn(nullable = false)
     Company owner;
 
+    @OneToOne(mappedBy = "vehicle")
+    Driver driver;
+
     public Vehicle() {
     }
 

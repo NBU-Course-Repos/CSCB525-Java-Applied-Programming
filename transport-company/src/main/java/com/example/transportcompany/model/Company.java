@@ -1,8 +1,6 @@
 package com.example.transportcompany.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
@@ -12,14 +10,22 @@ public class Company {
     @Id
     String name;
 
-    @OneToMany
+    @Column(name = "address")
+    String address;
+
+    @OneToMany(mappedBy = "employer")
     Set<Driver> drivers;
 
-    @OneToMany
+    @OneToMany(mappedBy = "owner")
     Set<Vehicle> vehicles;
 
     public Company(String name) {
         this.name = name;
+    }
+
+    public Company(String name, String address) {
+        this.name = name;
+        this.address = address;
     }
 
     public Company() {
@@ -31,5 +37,29 @@ public class Company {
 
     public Set<Driver> getDrivers() {
         return drivers;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDrivers(Set<Driver> drivers) {
+        this.drivers = drivers;
+    }
+
+    public Set<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(Set<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

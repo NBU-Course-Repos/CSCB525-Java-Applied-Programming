@@ -3,6 +3,8 @@ package com.example.transportcompany.model;
 import jakarta.persistence.*;
 import org.joda.time.DateTime;
 
+import java.math.BigDecimal;
+
 @Entity
 public class Request {
 
@@ -38,9 +40,29 @@ public class Request {
 
     @Column(nullable = false)
     @Enumerated
-    RequestFor requestFor;
-    //TODO Think of using a Builder or a Factory
+    RequestType requestType;
 
+    @Column(name = "freight_weight")
+    BigDecimal freightWeight;
+
+    @Column(name = "people_transported")
+    Integer peopleTransported;
+
+    @OneToOne
+    @JoinColumns({
+            @JoinColumn(name = "invoice_paid", referencedColumnName = "is_paid"),
+            @JoinColumn(name = "invoice_price", referencedColumnName = "price")
+
+    })
+    private Invoice invoice;
+
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
 
     public void setClient(Client client) {
         this.client = client;
@@ -70,8 +92,8 @@ public class Request {
         this.status = status;
     }
 
-    public void setRequestFor(RequestFor requestFor) {
-        this.requestFor = requestFor;
+    public void setRequestType(RequestType requestFor) {
+        this.requestType = requestFor;
     }
 
     public Long getRequestId() {
@@ -106,7 +128,7 @@ public class Request {
         return status;
     }
 
-    public RequestFor getRequestFor() {
-        return requestFor;
+    public RequestType getRequestType() {
+        return requestType;
     }
 }

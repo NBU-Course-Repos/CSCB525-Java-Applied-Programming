@@ -73,6 +73,18 @@ public class Driver {
         return employer;
     }
 
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public void setSpecialisations(Set<Specialisation> specialisations) {
+        this.specialisations = specialisations;
+    }
+
     public Set<Specialisation> getSpecialisations() {
         return specialisations;
     }

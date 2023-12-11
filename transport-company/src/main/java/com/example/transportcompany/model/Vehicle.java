@@ -16,7 +16,7 @@ public class Vehicle {
     @Enumerated(value = EnumType.STRING)
     VehicleType type;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(nullable = false)
     Company owner;
 
@@ -24,6 +24,11 @@ public class Vehicle {
     Driver driver;
 
     public Vehicle() {
+    }
+
+    public Vehicle(VehicleType type, Company owner) {
+        this.type = type;
+        this.owner = owner;
     }
 
     public UUID getVehicleNumber() {
@@ -44,5 +49,9 @@ public class Vehicle {
 
     public void setOwner(Company ownedBy) {
         this.owner = ownedBy;
+    }
+
+    public Driver getDriver() {
+        return driver;
     }
 }

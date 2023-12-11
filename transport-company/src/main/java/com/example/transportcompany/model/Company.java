@@ -13,10 +13,10 @@ public class Company {
     @Column(name = "address")
     String address;
 
-    @OneToMany(mappedBy = "employer")
+    @OneToMany(mappedBy = "employer", cascade = CascadeType.REMOVE)
     Set<Driver> drivers;
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
     Set<Vehicle> vehicles;
 
     public Company(String name) {

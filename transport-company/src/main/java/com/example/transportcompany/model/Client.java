@@ -30,6 +30,13 @@ public class Client {
     public Client() {
     }
 
+    public Client(String firstName, String lastName, String phoneNumber, String emailAddress) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.emailAddress = emailAddress;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

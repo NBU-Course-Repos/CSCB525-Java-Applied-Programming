@@ -19,6 +19,9 @@ public class Company {
     @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
     Set<Vehicle> vehicles;
 
+    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
+    Set<Request> requests;
+
     public Company(String name) {
         this.name = name;
     }

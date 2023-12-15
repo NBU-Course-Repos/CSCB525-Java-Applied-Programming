@@ -24,7 +24,6 @@ public class Driver {
     Company employer;
 
     @OneToOne
-    @JoinColumn
     Vehicle vehicle;
 
     @ElementCollection

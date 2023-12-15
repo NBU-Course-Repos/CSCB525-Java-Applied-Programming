@@ -3,7 +3,7 @@ package com.example.transportcompany.model;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 @Entity
 public class Request {
@@ -28,7 +28,7 @@ public class Request {
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = false, name = "departure_date")
-    private LocalDateTime departureDate;
+    private Date departureDate;
 
     @Column(nullable = false)
     @Enumerated
@@ -40,7 +40,7 @@ public class Request {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "arrival_date")
-    private LocalDateTime arrivalDate;
+    private Date arrivalDate;
 
 
     @Column(name = "freight_weight")
@@ -49,11 +49,8 @@ public class Request {
     @Column(name = "people_transported")
     private Short peopleTransported;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumns({
-            @JoinColumn(name = "invoice_paid", referencedColumnName = "is_paid"),
-            @JoinColumn(name = "invoice_price", referencedColumnName = "price")
-    })
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(unique = true)
     private Invoice invoice;
 
     public Request() {
@@ -70,20 +67,7 @@ public class Request {
         this.departureDate = builder.departureDate;
         this.freightWeight = builder.freightWeight;
         this.peopleTransported = builder.peopleTransported;
-    }
-
-    public Request(Client client, Company company, String origin, String destination, LocalDateTime departureDate, LocalDateTime arrivalDate, RequestStatus status, RequestType requestType, BigDecimal freightWeight, Short peopleTransported, Invoice invoice) {
-        this.client = client;
-        this.company = company;
-        this.origin = origin;
-        this.destination = destination;
-        this.departureDate = departureDate;
-        this.arrivalDate = arrivalDate;
-        this.status = status;
-        this.requestType = requestType;
-        this.freightWeight = freightWeight;
-        this.peopleTransported = peopleTransported;
-        this.invoice = invoice;
+        this.invoice = builder.invoice;
     }
 
     public Invoice getInvoice() {
@@ -110,11 +94,11 @@ public class Request {
         this.destination = destination;
     }
 
-    public void setDepartureDate(LocalDateTime departureDate) {
+    public void setDepartureDate(Date departureDate) {
         this.departureDate = departureDate;
     }
 
-    public void setArrivalDate(LocalDateTime arrivalDate) {
+    public void setArrivalDate(Date arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
@@ -146,11 +130,11 @@ public class Request {
         return destination;
     }
 
-    public LocalDateTime getDepartureDate() {
+    public Date getDepartureDate() {
         return departureDate;
     }
 
-    public LocalDateTime getArrivalDate() {
+    public Date getArrivalDate() {
         return arrivalDate;
     }
 
@@ -163,16 +147,18 @@ public class Request {
     }
 
     public static class RequestBuilder {
-        private LocalDateTime arrivalDate;
+        private Date arrivalDate;
         private RequestType requestType;
         private RequestStatus status = RequestStatus.TRIAGE;
-        private LocalDateTime departureDate;
+        private Date departureDate;
         private String destination;
         private String origin;
         private Company company;
         private Client client;
         private BigDecimal freightWeight;
         private Short peopleTransported;
+
+        private Invoice invoice;
 
         public RequestBuilder client(Client client) {
             this.client = client;
@@ -194,23 +180,23 @@ public class Request {
             return this;
         }
 
-        public RequestBuilder freightWeight(BigDecimal freightWeight) throws Exception {
+        public RequestBuilder freightWeight(BigDecimal freightWeight) throws BadRequetPropertyException {
             if (this.peopleTransported != null || this.requestType == RequestType.CHAUFFEUR)
-                throw new Exception("Can not set freight weight when transporting people.");
+                throw new BadRequetPropertyException("Can not set freight weight when transporting people.");
 
             this.freightWeight = freightWeight;
             return this;
         }
 
-        public RequestBuilder peopleTransported(Short peopleTransported) throws Exception {
+        public RequestBuilder peopleTransported(Short peopleTransported) throws BadRequetPropertyException {
             if (this.freightWeight != null || this.requestType == RequestType.FREIGHT)
-                throw new Exception("Can not set amount of people transported when transporting freight.");
+                throw new BadRequetPropertyException("Can not set amount of people transported when transporting freight.");
 
             this.peopleTransported = peopleTransported;
             return this;
         }
 
-        public RequestBuilder arrivalDate(LocalDateTime arrivalDate) {
+        public RequestBuilder arrivalDate(Date arrivalDate) {
             this.arrivalDate = arrivalDate;
             return this;
         }
@@ -225,13 +211,24 @@ public class Request {
             return this;
         }
 
-        public RequestBuilder departureDate(LocalDateTime departureDate) {
+        public RequestBuilder departureDate(Date departureDate) {
             this.departureDate = departureDate;
+            return this;
+        }
+
+        public RequestBuilder invoice(Invoice invoice) {
+            this.invoice = invoice;
             return this;
         }
 
         public Request build() {
             return new Request(this);
+        }
+    }
+
+    public static class BadRequetPropertyException extends Exception {
+        public BadRequetPropertyException(String message) {
+            super(message);
         }
     }
 }

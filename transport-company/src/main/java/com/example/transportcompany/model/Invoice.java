@@ -20,10 +20,12 @@ public class Invoice {
     @Column(name = "is_paid")
     Boolean isPaid;
 
-    public Invoice(Request request, BigDecimal price, Boolean isPaid) {
-        this.request = request;
+    public Invoice(BigDecimal price, Boolean isPaid) {
         this.price = price;
         this.isPaid = isPaid;
+    }
+
+    public Invoice() {
     }
 
     public void setRequest(Request request) {
@@ -34,7 +36,7 @@ public class Invoice {
         this.price = price;
     }
 
-    public void setPaid(Boolean paid) {
+    public void setIsPaid(Boolean paid) {
         isPaid = paid;
     }
 
@@ -50,7 +52,7 @@ public class Invoice {
         return price;
     }
 
-    public Boolean getPaid() {
+    public Boolean getIsPaid() {
         return isPaid;
     }
 }

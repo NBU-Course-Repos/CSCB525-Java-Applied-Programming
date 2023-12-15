@@ -1,5 +1,6 @@
 package com.example.transportcompany.service;
 
+import com.example.transportcompany.model.Company;
 import com.example.transportcompany.model.Invoice;
 import com.example.transportcompany.model.Request;
 import com.example.transportcompany.repository.RequestRepository;
@@ -14,6 +15,9 @@ public class RequestService extends AbstractService<Request, Long, RequestReposi
     @Autowired
     private InvoiceService invoiceService;
 
+    @Autowired
+    private CompanyService companyService;
+
     @Override
     Long getId(Request entity) {
         return entity.getRequestId();
@@ -25,8 +29,12 @@ public class RequestService extends AbstractService<Request, Long, RequestReposi
         if (invoice.getIsPaid())
             logger.info("Invoice for request " + request.getRequestId() + " is already paid.");
         invoice.setIsPaid(true);
-
         invoiceService.update(invoice);
+
+        companyService.addToEarnings(
+                request.getCompany(),
+                request.getInvoice().getPrice()
+        );
     }
 
     private final Logger logger = LoggerFactory.getLogger(RequestService.class);

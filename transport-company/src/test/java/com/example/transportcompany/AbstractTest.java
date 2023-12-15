@@ -45,16 +45,10 @@ public abstract class AbstractTest {
 
     @BeforeEach
     void cleanup() {
-//        cleanUpMap.forEach((key, value) -> {
-//            logger.info(CLEANUP_MESSAGE + value);
-//            key.deleteAll();
-//        });
-        requestService.deleteAll();
-        invoiceService.deleteAll();
-        clientService.deleteAll();
-        vehicleService.deleteAll();
-        driverService.deleteAll();
-        companyService.deleteAll();
+        cleanUpMap.forEach((key, value) -> {
+            logger.info(CLEANUP_MESSAGE + value);
+            key.deleteAll();
+        });
     }
 
     private void setupCleanupMap() {

@@ -2,6 +2,7 @@ package com.example.transportcompany.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
@@ -22,6 +23,9 @@ public class Company {
     @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
     Set<Request> requests;
 
+    @Column(name = "earnings")
+    BigDecimal earnings = BigDecimal.valueOf(0);
+
     public Company(String name) {
         this.name = name;
     }
@@ -32,6 +36,12 @@ public class Company {
     }
 
     public Company() {
+    }
+
+    public Company(String name, String address, BigDecimal earnings) {
+        this.name = name;
+        this.address = address;
+        this.earnings = earnings;
     }
 
     public String getName() {
@@ -64,5 +74,13 @@ public class Company {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public BigDecimal getEarnings() {
+        return earnings;
+    }
+
+    public void setEarnings(BigDecimal earnings) {
+        this.earnings = earnings;
     }
 }

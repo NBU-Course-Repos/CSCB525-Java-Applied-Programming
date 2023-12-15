@@ -76,8 +76,12 @@ public class TestRequestService extends AbstractServiceTest {
             assertThat(request.getInvoice().getIsPaid()).isFalse();
             requestService.payInvoice(request);
 
-            Invoice paidInvoice = requestService.getById(request.getRequestId()).get().getInvoice();
+            Request updatedRequest = requestService.getById(request.getRequestId()).get();
+            Invoice paidInvoice = updatedRequest.getInvoice();
             assertThat(paidInvoice.getIsPaid()).isTrue();
+
+            assertThat(BigDecimal.valueOf(0).add(paidInvoice.getPrice()))
+                    .isEqualTo(updatedRequest.getCompany().getEarnings());
 
         } catch (BadRequetPropertyException exception) {
             fail(exception.getMessage());

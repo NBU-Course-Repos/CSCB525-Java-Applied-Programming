@@ -2,6 +2,8 @@ package com.example.transportcompany.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -25,6 +27,9 @@ public class Driver {
 
     @OneToOne
     Vehicle vehicle;
+
+    @Column(name = "monthly_wage")
+    BigDecimal wage;
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
@@ -54,6 +59,14 @@ public class Driver {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employer = employer;
+    }
+
+    public Driver(String firstName, String lastName, Company employer, BigDecimal wage, Set<Specialisation> specialisations) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.employer = employer;
+        this.wage = wage;
+        this.specialisations = specialisations;
     }
 
     public UUID getUCN() {

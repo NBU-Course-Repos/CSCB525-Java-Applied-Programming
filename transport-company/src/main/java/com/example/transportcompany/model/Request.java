@@ -16,7 +16,7 @@ public class Request {
     @JoinColumn(nullable = false)
     private Client client;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(nullable = false)
     private Company company;
 

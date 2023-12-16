@@ -1,7 +1,7 @@
 package com.example.transportcompany;
 
-import com.example.transportcompany.model.*;
-import com.example.transportcompany.service.*;
+import com.example.transportcompany.persistence.model.*;
+import com.example.transportcompany.persistence.service.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
@@ -10,6 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Map;
 
 @SpringBootTest
@@ -21,30 +24,30 @@ public abstract class AbstractTest {
     private Map<AbstractService, Class> cleanUpMap;
 
     @Autowired
-    CompanyService companyService;
+    protected CompanyService companyService;
 
     @Autowired
-    ClientService clientService;
+    protected ClientService clientService;
 
     @Autowired
-    DriverService driverService;
+    protected DriverService driverService;
 
     @Autowired
-    InvoiceService invoiceService;
+    protected InvoiceService invoiceService;
 
     @Autowired
-    RequestService requestService;
+    protected RequestService requestService;
 
     @Autowired
-    VehicleService vehicleService;
+    protected VehicleService vehicleService;
 
     @BeforeAll
-    void setup() {
+    protected void setup() {
         setupCleanupMap();
     }
 
     @BeforeEach
-    void cleanup() {
+    protected void cleanup() {
         cleanUpMap.forEach((key, value) -> {
             logger.info(CLEANUP_MESSAGE + value);
             key.deleteAll();
@@ -60,5 +63,19 @@ public abstract class AbstractTest {
                 driverService, Driver.class,
                 companyService, Company.class
         );
+    }
+
+    protected Request buildTestRequest(String destination) throws Request.BadRequetPropertyException {
+        return new Request.RequestBuilder()
+                .client(clientService.save(new Client("a", "a", "123", "a@a.a")))
+                .company(companyService.save(new Company("Speedn't")))
+                .origin("Sofia")
+                .destination(destination)
+                .departureDate(Date.valueOf(LocalDate.now()))
+                .status(RequestStatus.TRIAGE)
+                .requestType(RequestType.FREIGHT)
+                .freightWeight(BigDecimal.valueOf(100))
+                .invoice(new Invoice(BigDecimal.valueOf(110), false))
+                .build();
     }
 }

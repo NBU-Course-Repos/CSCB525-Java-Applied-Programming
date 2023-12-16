@@ -13,7 +13,7 @@ public class Request {
     private Long requestId;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn
     private Client client;
 
     @ManyToOne(cascade = CascadeType.REFRESH)

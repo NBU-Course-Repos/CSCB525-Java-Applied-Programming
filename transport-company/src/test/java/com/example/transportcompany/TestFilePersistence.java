@@ -25,6 +25,8 @@ public class TestFilePersistence extends AbstractTest {
 
         List<RequestDTO> readRequests = JsonUtils.requestsFromJson(file);
         assertThat(readRequests).hasSize(requests.size());
+        assertThat(readRequests.stream().map(RequestDTO::getRequestId).toList())
+                .containsExactlyInAnyOrderElementsOf(requests.stream().map(Request::getRequestId).toList());
     }
 
     private void bulkPersistRequests() {

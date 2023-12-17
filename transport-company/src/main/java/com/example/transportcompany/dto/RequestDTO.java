@@ -47,4 +47,8 @@ public class RequestDTO {
 
     public RequestDTO() {
     }
+
+    public Long getRequestId() {
+        return requestId;
+    }
 }

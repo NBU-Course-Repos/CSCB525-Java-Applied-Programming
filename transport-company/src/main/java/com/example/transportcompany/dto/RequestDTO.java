@@ -1,4 +1,4 @@
-package com.example.transportcompany;
+package com.example.transportcompany.dto;
 
 import com.example.transportcompany.persistence.model.*;
 
@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.UUID;
 
-public class RequestSummary {
+public class RequestDTO {
 
     public Long requestId;
 
@@ -30,18 +30,21 @@ public class RequestSummary {
 
     public Short peopleTransported;
 
-    public Invoice invoice;
+    public InvoiceDTO invoice;
 
-    public RequestSummary(Request request) {
+    public RequestDTO(Request request) {
         this.requestId = request.getRequestId();
         this.companyName = request.getCompany().getName();
         this.clientId = request.getClient().getClientId();
-        this.invoice = request.getInvoice();
+        this.invoice = new InvoiceDTO(request.getInvoice());
         this.destination = request.getDestination();
         this.origin = request.getOrigin();
         this.departureDate = request.getDepartureDate();
         this.arrivalDate = request.getArrivalDate();
         this.status = request.getStatus();
         this.requestType = request.getRequestType();
+    }
+
+    public RequestDTO() {
     }
 }

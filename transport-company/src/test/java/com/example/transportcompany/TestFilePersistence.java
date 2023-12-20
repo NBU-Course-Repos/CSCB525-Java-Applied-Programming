@@ -2,13 +2,11 @@ package com.example.transportcompany;
 
 import com.example.transportcompany.dto.RequestDTO;
 import com.example.transportcompany.persistence.model.Request;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Fail.fail;
@@ -18,7 +16,7 @@ public class TestFilePersistence extends AbstractTest {
 
     @Test
     void requestEntityToAndFromFile() throws IOException {
-        bulkPersistRequests();
+        bulkSaveRequests();
         List<Request> requests = requestService.getAll();
         File file = JsonUtils.requestsToJson(requests);
         assertThat(file).exists();
@@ -29,7 +27,7 @@ public class TestFilePersistence extends AbstractTest {
                 .containsExactlyInAnyOrderElementsOf(requests.stream().map(Request::getRequestId).toList());
     }
 
-    private void bulkPersistRequests() {
+    private void bulkSaveRequests() {
         List<String> destinations = List.of("Pernik", "Sofia", "Vienna", "Belgrade");
         IntStream.range(0, 3).forEachOrdered(index -> {
                     try {

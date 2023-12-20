@@ -1,5 +1,6 @@
 package com.example.transportcompany.persistence.service;
 
+import com.example.transportcompany.persistence.model.Company;
 import com.example.transportcompany.persistence.model.Driver;
 import com.example.transportcompany.persistence.model.Specialisation;
 import com.example.transportcompany.persistence.repository.DriverRepository;
@@ -26,5 +27,9 @@ public class DriverService extends AbstractService<Driver, UUID, DriverRepositor
 
     public List<Driver> findByWageInRange(BigDecimal lowerBound, BigDecimal topBound) {
         return repository.findAllByWageBetween(lowerBound, topBound);
+    }
+
+    public List<Driver> getAllDriversWithEmployer(Company company) {
+        return repository.findAllByEmployer(company);
     }
 }

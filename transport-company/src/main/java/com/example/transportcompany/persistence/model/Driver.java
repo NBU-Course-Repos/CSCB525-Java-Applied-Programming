@@ -35,6 +35,9 @@ public class Driver {
     @CollectionTable
     Set<Specialisation> specialisations = Set.of(Specialisation.DEFAULT);
 
+    @OneToMany
+    Set<Request> requests;
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

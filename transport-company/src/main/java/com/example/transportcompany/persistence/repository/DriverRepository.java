@@ -1,5 +1,6 @@
 package com.example.transportcompany.persistence.repository;
 
+import com.example.transportcompany.persistence.model.Company;
 import com.example.transportcompany.persistence.model.Driver;
 import com.example.transportcompany.persistence.model.Specialisation;
 import org.springframework.data.repository.CrudRepository;
@@ -17,4 +18,6 @@ public interface DriverRepository extends CrudRepository<Driver, UUID> {
     List<Driver> findAllBySpecialisationsIn(List<Specialisation> specialisations);
 
     List<Driver> findAllByWageBetween(BigDecimal lowerBound, BigDecimal topBound);
+
+    List<Driver> findAllByEmployer(Company company);
 }

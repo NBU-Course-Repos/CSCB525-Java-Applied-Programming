@@ -53,6 +53,10 @@ public class Request {
     @JoinColumn(unique = true)
     private Invoice invoice;
 
+    @ManyToOne
+    @JoinColumn
+    private Driver driver;
+
     public Request() {
     }
 
@@ -68,6 +72,7 @@ public class Request {
         this.freightWeight = builder.freightWeight;
         this.peopleTransported = builder.peopleTransported;
         this.invoice = builder.invoice;
+        this.driver = builder.driver;
     }
 
     public Invoice getInvoice() {
@@ -146,6 +151,14 @@ public class Request {
         return requestType;
     }
 
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
     public static class RequestBuilder {
         private Date arrivalDate;
         private RequestType requestType;
@@ -157,8 +170,8 @@ public class Request {
         private Client client;
         private BigDecimal freightWeight;
         private Short peopleTransported;
-
         private Invoice invoice;
+        private Driver driver;
 
         public RequestBuilder client(Client client) {
             this.client = client;
@@ -218,6 +231,11 @@ public class Request {
 
         public RequestBuilder invoice(Invoice invoice) {
             this.invoice = invoice;
+            return this;
+        }
+
+        public RequestBuilder driver(Driver driver) {
+            this.driver = driver;
             return this;
         }
 

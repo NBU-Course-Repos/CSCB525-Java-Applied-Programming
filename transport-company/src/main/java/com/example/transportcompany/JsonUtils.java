@@ -2,6 +2,7 @@ package com.example.transportcompany;
 
 import com.example.transportcompany.dto.RequestDTO;
 import com.example.transportcompany.persistence.model.Request;
+import com.example.transportcompany.reports.Report;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -19,8 +20,14 @@ public class JsonUtils {
         return file;
     }
 
+    public static File reportToJson(Report report) throws IOException {
+        File file = new File("target/report.json");
+        mapper.writeValue(file, report);
+        return file;
+    }
+
     public static List<RequestDTO> requestsFromJson(File file) throws IOException {
-        return mapper.readValue(file, new TypeReference<List<RequestDTO>>() {
+        return mapper.readValue(file, new TypeReference<>() {
         });
     }
 }

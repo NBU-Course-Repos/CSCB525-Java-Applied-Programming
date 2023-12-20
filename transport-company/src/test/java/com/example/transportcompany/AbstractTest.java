@@ -12,8 +12,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Map;
+import java.util.Random;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -42,7 +44,7 @@ public abstract class AbstractTest {
     protected VehicleService vehicleService;
 
     @BeforeAll
-    protected void setup() {
+    protected void setup() throws Request.BadRequetPropertyException, InterruptedException {
         setupCleanupMap();
     }
 
@@ -75,7 +77,7 @@ public abstract class AbstractTest {
                 .status(RequestStatus.TRIAGE)
                 .requestType(RequestType.FREIGHT)
                 .freightWeight(BigDecimal.valueOf(100))
-                .invoice(new Invoice(BigDecimal.valueOf(110), false))
+                .invoice(new Invoice(BigDecimal.valueOf(Instant.now().getNano() / 1000), true))
                 .build();
     }
 }

@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import java.math.BigDecimal;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 import com.example.transportcompany.persistence.model.Request.BadRequetPropertyException;
@@ -105,7 +103,7 @@ public class TestRequestService extends AbstractServiceTest {
                             request4.getRequestId(),
                             request2.getRequestId());
 
-            List<Request> filter2 = requestService.findAllByDestination("Asenovgrad");
+            List<Request> filter2 = requestService.findAllBy("Asenovgrad");
             assertThat(filter2).hasSize(2);
             assertThat(filter2.stream().map(Request::getRequestId))
                     .contains(request3.getRequestId(), request4.getRequestId());

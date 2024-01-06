@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
+/**
+ * Persistence model for an Invoice for a client delivery {@link Request}
+ */
 @Entity
 public class Invoice {
 

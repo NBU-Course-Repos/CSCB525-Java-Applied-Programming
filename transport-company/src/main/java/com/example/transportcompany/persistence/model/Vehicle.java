@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 
 import java.util.UUID;
 
+/**
+ * Persistence model for a vehicle, owned by a {@link Company} and driven by a {@link Driver}
+ */
 @Entity
 public class Vehicle {
 

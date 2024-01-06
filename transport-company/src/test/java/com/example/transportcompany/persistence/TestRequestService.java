@@ -1,7 +1,10 @@
 package com.example.transportcompany.persistence;
 
+import com.example.transportcompany.AbstractTest;
 import com.example.transportcompany.persistence.model.*;
+import com.example.transportcompany.persistence.service.RequestService;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import java.math.BigDecimal;
@@ -11,17 +14,20 @@ import com.example.transportcompany.persistence.model.Request.BadRequetPropertyE
 
 import static org.assertj.core.api.Assertions.*;
 
-public class TestRequestService extends AbstractServiceTest {
+/**
+ * A class that defines the necessary tests for {@link RequestService}
+ */
+public class TestRequestService extends AbstractTest implements ModelServiceTest {
 
     @Test
-    void create() {
+    public void create() {
         assertThatExceptionOfType(DataIntegrityViolationException.class)
                 .isThrownBy(() ->
                         requestService.save(new Request()))
                 .withMessageContaining("not-null property references a null or transient value");
 
         try {
-            Request request = requestService.save(buildTestRequest("Pernik"));
+            Request request = requestService.save(buildTestRequest("Pernik", false));
             assertThat(request.getRequestId()).isNotNull();
         } catch (BadRequetPropertyException exception) {
             fail(exception.getMessage());
@@ -29,10 +35,10 @@ public class TestRequestService extends AbstractServiceTest {
     }
 
     @Test
-    void read() {
+    public void read() {
         try {
-            Request request = requestService.save(buildTestRequest("Pernik"));
-            Request request2 = requestService.save(buildTestRequest("Pernik"));
+            Request request = requestService.save(buildTestRequest("Pernik", false));
+            Request request2 = requestService.save(buildTestRequest("Pernik", false));
             assertThat(requestService.getById(request.getRequestId())).isPresent();
             assertThat(requestService.getAll().size()).isEqualTo(2);
         } catch (BadRequetPropertyException exception) {
@@ -41,9 +47,9 @@ public class TestRequestService extends AbstractServiceTest {
     }
 
     @Test
-    void update() {
+    public void update() {
         try {
-            Request request = requestService.save(buildTestRequest("Pernik"));
+            Request request = requestService.save(buildTestRequest("Pernik", false));
             assertThat(requestService.getById(request.getRequestId())).isPresent();
             assertThat(requestService.getById(request.getRequestId()).get().getStatus()).isEqualTo(RequestStatus.TRIAGE);
 
@@ -56,9 +62,9 @@ public class TestRequestService extends AbstractServiceTest {
     }
 
     @Test
-    void delete() {
+    public void delete() {
         try {
-            Request request = requestService.save(buildTestRequest("Pernik"));
+            Request request = requestService.save(buildTestRequest("Pernik", false));
             assertThat(requestService.getById(request.getRequestId())).isPresent();
 
             requestService.delete(request);
@@ -69,9 +75,9 @@ public class TestRequestService extends AbstractServiceTest {
     }
 
     @Test
-    void payInvoice() {
+    public void payInvoice() {
         try {
-            Request request = requestService.save(buildTestRequest("Pernik"));
+            Request request = requestService.save(buildTestRequest("Pernik", false));
             assertThat(request.getInvoice().getIsPaid()).isFalse();
             requestService.payInvoice(request);
 
@@ -88,12 +94,12 @@ public class TestRequestService extends AbstractServiceTest {
     }
 
     @Test
-    void orderAndFilterByDestination() {
+    public void orderAndFilterByDestination() {
         try {
-            Request request1 = requestService.save(buildTestRequest("Ahtopol"));
-            Request request2 = requestService.save(buildTestRequest("Botevgrad"));
-            Request request3 = requestService.save(buildTestRequest("Asenovgrad"));
-            Request request4 = requestService.save(buildTestRequest("Asenovgrad"));
+            Request request1 = requestService.save(buildTestRequest("Ahtopol", false));
+            Request request2 = requestService.save(buildTestRequest("Botevgrad", false));
+            Request request3 = requestService.save(buildTestRequest("Asenovgrad", false));
+            Request request4 = requestService.save(buildTestRequest("Asenovgrad", false));
 
             List<Request> filter1 = requestService.orderAllByDestination();
             assertThat(filter1.stream().map(Request::getRequestId))

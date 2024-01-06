@@ -12,6 +12,15 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
 
+/**
+ * Abstract service class - to be inherited by all model services.
+ * {@link AbstractService} defines all the common methods used by all model services, such as
+ * CRUD operations, retrieval methods and etc.
+ *
+ * @param <T>  - The persistence model type
+ * @param <ID> - The Class type of the model persistence ID
+ * @param <R>  - The Persistence Repository to be used for the specified model
+ */
 @Service
 public abstract class AbstractService<T, ID, R extends CrudRepository<T, ID>> {
 

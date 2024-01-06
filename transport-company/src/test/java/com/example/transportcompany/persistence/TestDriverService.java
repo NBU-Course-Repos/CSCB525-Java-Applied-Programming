@@ -1,8 +1,11 @@
 package com.example.transportcompany.persistence;
 
+import com.example.transportcompany.AbstractTest;
 import com.example.transportcompany.persistence.model.Company;
 import com.example.transportcompany.persistence.model.Driver;
 import com.example.transportcompany.persistence.model.Specialisation;
+import com.example.transportcompany.persistence.service.CompanyService;
+import com.example.transportcompany.persistence.service.DriverService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -14,11 +17,13 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
 
-@SpringBootTest
-public class TestDriverService extends AbstractServiceTest {
+/**
+ * A class that defines the necessary tests for {@link DriverService}
+ */
+public class TestDriverService extends AbstractTest implements ModelServiceTest {
 
     @Test
-    void create() {
+    public void create() {
         assertThatExceptionOfType(DataIntegrityViolationException.class)
                 .isThrownBy(() ->
                         driverService.save(new Driver()))
@@ -31,7 +36,7 @@ public class TestDriverService extends AbstractServiceTest {
     }
 
     @Test
-    void read() {
+    public void read() {
         Driver driver = driverService.save(new Driver(
                 "Ivan",
                 "Ivanov",
@@ -49,7 +54,7 @@ public class TestDriverService extends AbstractServiceTest {
     }
 
     @Test
-    void update() {
+    public void update() {
         Driver driver = driverService.save(new Driver(
                 "Ivan",
                 "Ivanov",
@@ -63,7 +68,7 @@ public class TestDriverService extends AbstractServiceTest {
     }
 
     @Test
-    void delete() {
+    public void delete() {
         Driver driver = driverService.save(new Driver(
                 "Ivan",
                 "Ivanov",
@@ -76,7 +81,7 @@ public class TestDriverService extends AbstractServiceTest {
     }
 
     @Test
-    void filterAndSearch() {
+    public void filterAndSearch() {
         Company company = companyService.save(new Company("Speedy"));
 
         Driver driver1 = driverService.save(new Driver("A", "B", company, BigDecimal.valueOf(10),

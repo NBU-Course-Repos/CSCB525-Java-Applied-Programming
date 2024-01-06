@@ -1,5 +1,6 @@
 package com.example.transportcompany.persistence.repository;
 
+import com.example.transportcompany.persistence.model.Client;
 import com.example.transportcompany.persistence.model.Company;
 import com.example.transportcompany.persistence.model.Driver;
 import com.example.transportcompany.persistence.model.Request;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * CRUD repository for {@link Request} model
+ */
 @Repository
 public interface RequestRepository extends CrudRepository<Request, Long> {
 

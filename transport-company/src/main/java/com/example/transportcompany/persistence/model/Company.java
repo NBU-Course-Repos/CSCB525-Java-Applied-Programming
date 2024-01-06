@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
+/**
+ * Persistence model for a transport company
+ */
 @Entity
 public class Company {
 

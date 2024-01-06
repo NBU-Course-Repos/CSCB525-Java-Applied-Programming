@@ -2,6 +2,12 @@ package com.example.transportcompany.dto;
 
 import java.math.BigDecimal;
 
+import com.example.transportcompany.persistence.model.Driver;
+
+/**
+ * DTO of {@link Driver} to be used
+ * in transformations, deserialization and serialization methods
+ */
 public class DriverDTO {
 
     public String firstName;

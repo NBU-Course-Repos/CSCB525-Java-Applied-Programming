@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+/**
+ * Service to be used for any CRUD operation, as well as necessary transformations,
+ * to {@link ClientRepository}
+ */
 @Service
 public class ClientService extends AbstractService<Client, UUID, ClientRepository> {
 

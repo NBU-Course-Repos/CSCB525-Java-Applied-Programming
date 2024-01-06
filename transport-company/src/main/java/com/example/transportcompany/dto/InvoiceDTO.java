@@ -4,6 +4,10 @@ import com.example.transportcompany.persistence.model.Invoice;
 
 import java.math.BigDecimal;
 
+/**
+ * DTO of {@link Invoice} to be used
+ * in transformations, deserialization and serialization methods
+ */
 public class InvoiceDTO {
     public BigDecimal price;
     public boolean isPaid;

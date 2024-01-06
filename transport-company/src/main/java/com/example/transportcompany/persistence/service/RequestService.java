@@ -5,6 +5,7 @@ import com.example.transportcompany.persistence.model.Company;
 import com.example.transportcompany.persistence.model.Driver;
 import com.example.transportcompany.persistence.model.Invoice;
 import com.example.transportcompany.persistence.model.Request;
+import com.example.transportcompany.persistence.repository.CompanyRepository;
 import com.example.transportcompany.persistence.repository.RequestRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,10 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Service to be used for any CRUD operation, as well as necessary transformations,
+ * to {@link RequestRepository}
+ */
 @Service
 public class RequestService extends AbstractService<Request, Long, RequestRepository> {
 
@@ -34,7 +39,7 @@ public class RequestService extends AbstractService<Request, Long, RequestReposi
         super.save(entity);
         if (entity.getInvoice().getIsPaid())
             companyService.addToEarnings(entity.getCompany(), entity.getInvoice().getPrice());
-        
+
         return entity;
     }
 

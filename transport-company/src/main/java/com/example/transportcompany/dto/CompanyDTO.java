@@ -2,6 +2,12 @@ package com.example.transportcompany.dto;
 
 import java.math.BigDecimal;
 
+import com.example.transportcompany.persistence.model.Company;
+
+/**
+ * DTO of {@link Company} to be used
+ * in transformations, deserialization and serialization methods
+ */
 public class CompanyDTO {
     public String name;
 

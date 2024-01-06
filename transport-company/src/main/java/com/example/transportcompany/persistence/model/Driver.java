@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 import java.util.Set;
 import java.util.UUID;
 
+/**
+ * Persistence model for a driver employee of a {@link Company}
+ */
 @Entity
 public class Driver {
 

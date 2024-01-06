@@ -20,6 +20,10 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * A service used to generate a json file {@link Report} for company's activities.
+ * Any data gathering and transformation for a {@link Report} is handled by this service.
+ */
 @Service
 public class ReportGenerationService {
 
@@ -78,11 +82,3 @@ public class ReportGenerationService {
         return earnings;
     }
 }
-
-
-/*
-Показване на справки за общ брой извършени превози, обща сума на извършените
-превози, списък с шофьорите и колко превоза е осъществил всеки от тях, приходите на
-компанията за определен период от време, колко точно е приходът от всеки от
-шофьорите и т.н.
- */

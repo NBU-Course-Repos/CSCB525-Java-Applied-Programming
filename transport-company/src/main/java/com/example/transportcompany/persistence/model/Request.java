@@ -5,6 +5,10 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+
+/**
+ * Persistence model for a delivery request
+ */
 @Entity
 public class Request {
 
@@ -244,6 +248,12 @@ public class Request {
         }
     }
 
+    /**
+     * An {@link Exception} usually thrown when trying to set an invalid property for a {@link Request}.
+     * Such examples are:
+     * <li>Setting a passenger count when the {@link RequestType} is {@code RequestType.FREIGHT}</li>
+     * <li>Setting cargo weight  when the {@link RequestType} is {@code RequestType.CHAUFFEUR}</li>
+     */
     public static class BadRequetPropertyException extends Exception {
         public BadRequetPropertyException(String message) {
             super(message);

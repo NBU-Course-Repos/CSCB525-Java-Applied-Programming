@@ -6,6 +6,10 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.UUID;
 
+/**
+ * DTO of {@link Request} to be used
+ * in transformations, deserialization and serialization methods
+ */
 public class RequestDTO {
 
     public Long requestId;

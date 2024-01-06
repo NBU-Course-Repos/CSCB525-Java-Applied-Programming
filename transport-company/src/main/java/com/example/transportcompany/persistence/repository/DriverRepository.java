@@ -1,5 +1,6 @@
 package com.example.transportcompany.persistence.repository;
 
+import com.example.transportcompany.persistence.model.Client;
 import com.example.transportcompany.persistence.model.Company;
 import com.example.transportcompany.persistence.model.Driver;
 import com.example.transportcompany.persistence.model.Specialisation;
@@ -10,6 +11,9 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * CRUD repository for {@link Driver} model
+ */
 @Repository
 public interface DriverRepository extends CrudRepository<Driver, UUID> {
 

@@ -5,7 +5,6 @@ import com.example.transportcompany.persistence.model.Driver;
 import com.example.transportcompany.persistence.model.Request;
 import com.example.transportcompany.reports.InvalidReportRequestException;
 import com.example.transportcompany.reports.ReportGenerationService;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,12 +15,14 @@ import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+/**
+ * Test {@link ReportGenerationService}
+ */
 @SpringBootTest
 public class TestReportGenerationService extends AbstractTest {
 
     @Autowired
     private ReportGenerationService reportGenerationService;
-
 
     @Test
     public void generateReport() throws InvalidReportRequestException, IOException, Request.BadRequetPropertyException {
@@ -41,7 +42,7 @@ public class TestReportGenerationService extends AbstractTest {
     }
 
     protected Request buildTestRequest(String destination, Driver driver, Company company) throws Request.BadRequetPropertyException {
-        Request request = super.buildTestRequest(destination);
+        Request request = super.buildTestRequest(destination, true);
         request.setDriver(driver);
         request.setCompany(company);
         return request;

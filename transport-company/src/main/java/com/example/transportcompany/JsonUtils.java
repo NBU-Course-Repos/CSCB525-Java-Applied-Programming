@@ -10,6 +10,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * {@link JsonUtils} is to be used to serialize and deserialize entities in a json file
+ */
 public class JsonUtils {
 
     private static final ObjectMapper mapper = new ObjectMapper();

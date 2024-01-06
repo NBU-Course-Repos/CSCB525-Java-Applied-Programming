@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
+/**
+ * CRUD repository for {@link Client} model
+ */
 @Repository
 public interface ClientRepository extends CrudRepository<Client, UUID> {
 }

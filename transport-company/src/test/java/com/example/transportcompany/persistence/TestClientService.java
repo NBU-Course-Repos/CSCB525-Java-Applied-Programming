@@ -1,18 +1,25 @@
 package com.example.transportcompany.persistence;
 
+import com.example.transportcompany.AbstractTest;
 import com.example.transportcompany.persistence.model.Client;
+import com.example.transportcompany.persistence.service.ClientService;
+import com.example.transportcompany.persistence.service.RequestService;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TestClientService extends AbstractServiceTest {
+/**
+ * A class that defines the necessary tests for {@link ClientService}
+ */
+public class TestClientService extends AbstractTest implements ModelServiceTest {
     private final String CUSTOMER_FN = "Ivan";
     private final String CUSTOMER_LN = "Ivanov";
     private final String CUSTOMER_EMAIL = "ivan.ivanov@abv.bg";
     private final String CUSTOMER_PN = "+3934132121";
 
     @Test
-    void create() {
+    public void create() {
         Client client = clientService.save(clientService.save(new Client(
                         CUSTOMER_FN,
                         CUSTOMER_LN,
@@ -24,7 +31,7 @@ public class TestClientService extends AbstractServiceTest {
     }
 
     @Test
-    void read() {
+    public void read() {
         Client client = clientService.save(clientService.save(new Client(
                         CUSTOMER_FN,
                         CUSTOMER_LN,
@@ -45,7 +52,7 @@ public class TestClientService extends AbstractServiceTest {
     }
 
     @Test
-    void update() {
+    public void update() {
         Client client = clientService.save(clientService.save(new Client(
                         CUSTOMER_FN,
                         CUSTOMER_LN,
@@ -63,7 +70,7 @@ public class TestClientService extends AbstractServiceTest {
     }
 
     @Test
-    void delete() {
+    public void delete() {
         Client client = clientService.save(clientService.save(new Client(
                         CUSTOMER_FN,
                         CUSTOMER_LN,

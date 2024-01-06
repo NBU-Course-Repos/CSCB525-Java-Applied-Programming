@@ -1,16 +1,23 @@
 package com.example.transportcompany.persistence;
 
+import com.example.transportcompany.AbstractTest;
 import com.example.transportcompany.persistence.model.Company;
 import com.example.transportcompany.persistence.model.Vehicle;
 import com.example.transportcompany.persistence.model.VehicleType;
+import com.example.transportcompany.persistence.service.DriverService;
+import com.example.transportcompany.persistence.service.VehicleService;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class TestVehicleService extends AbstractServiceTest {
+/**
+ * A class that defines the necessary tests for {@link VehicleService}
+ */
+public class TestVehicleService extends AbstractTest implements ModelServiceTest {
     @Test
-    void create() {
+    public void create() {
         assertThatExceptionOfType(DataIntegrityViolationException.class)
                 .isThrownBy(() ->
                         vehicleService.save(new Vehicle()))
@@ -34,7 +41,7 @@ public class TestVehicleService extends AbstractServiceTest {
     }
 
     @Test
-    void read() {
+    public void read() {
         Vehicle vehicle = vehicleService.save(
                 new Vehicle(
                         VehicleType.BUS,
@@ -53,7 +60,7 @@ public class TestVehicleService extends AbstractServiceTest {
     }
 
     @Test
-    void update() {
+    public void update() {
         Vehicle vehicle = vehicleService.save(
                 new Vehicle(
                         VehicleType.BUS,
@@ -69,7 +76,7 @@ public class TestVehicleService extends AbstractServiceTest {
     }
 
     @Test
-    void delete() {
+    public void delete() {
         Vehicle vehicle = vehicleService.save(
                 new Vehicle(
                         VehicleType.BUS,

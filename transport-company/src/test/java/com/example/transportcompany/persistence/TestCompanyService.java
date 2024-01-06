@@ -1,6 +1,9 @@
 package com.example.transportcompany.persistence;
 
+import com.example.transportcompany.AbstractTest;
 import com.example.transportcompany.persistence.model.Company;
+import com.example.transportcompany.persistence.service.ClientService;
+import com.example.transportcompany.persistence.service.CompanyService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -11,20 +14,22 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertWith;
 
-@SpringBootTest
-public class TestCompanyService extends AbstractServiceTest {
+/**
+ * A class that defines the necessary tests for {@link CompanyService}
+ */
+public class TestCompanyService extends AbstractTest implements ModelServiceTest {
 
     private final String COMPANY_NAME = "KARAT C";
 
     @Test
-    void create() {
+    public void create() {
         companyService.save(new Company(COMPANY_NAME));
         Optional<Company> company = companyService.getById(COMPANY_NAME);
         assertThat(company).isPresent();
     }
 
     @Test
-    void read() {
+    public void read() {
         companyService.save(new Company(COMPANY_NAME));
         companyService.save(new Company("Company 2"));
         assertThat(companyService.getById(COMPANY_NAME)).isPresent();
@@ -32,7 +37,7 @@ public class TestCompanyService extends AbstractServiceTest {
     }
 
     @Test
-    void update() {
+    public void update() {
         Company company = new Company(COMPANY_NAME, "Street 1");
         companyService.save(company);
         company.setAddress("Street 2");
@@ -44,14 +49,14 @@ public class TestCompanyService extends AbstractServiceTest {
     }
 
     @Test
-    void delete() {
+    public void delete() {
         companyService.save(new Company(COMPANY_NAME));
         companyService.deleteByID(COMPANY_NAME);
         assertThat(companyService.getById(COMPANY_NAME)).isEmpty();
     }
 
     @Test
-    void orderAndFiltering() {
+    public void orderAndFiltering() {
 
         Company company1 = companyService.save(new Company("ABC", "Sofia", BigDecimal.valueOf(2000)));
         Company company2 = companyService.save(new Company("BAC", "Sofia", BigDecimal.valueOf(1100)));

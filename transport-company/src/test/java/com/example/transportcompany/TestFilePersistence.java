@@ -12,6 +12,9 @@ import java.util.stream.IntStream;
 import static org.assertj.core.api.Fail.fail;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Test serialization/deserialization from/to json a file
+ */
 public class TestFilePersistence extends AbstractTest {
 
     @Test
@@ -31,7 +34,7 @@ public class TestFilePersistence extends AbstractTest {
         List<String> destinations = List.of("Pernik", "Sofia", "Vienna", "Belgrade");
         IntStream.range(0, 3).forEachOrdered(index -> {
                     try {
-                        requestService.save(buildTestRequest(destinations.get(index)));
+                        requestService.save(buildTestRequest(destinations.get(index), false));
                     } catch (Request.BadRequetPropertyException e) {
                         throw new RuntimeException(e);
                     }

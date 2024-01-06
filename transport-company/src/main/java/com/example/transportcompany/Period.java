@@ -2,6 +2,9 @@ package com.example.transportcompany;
 
 import java.util.Date;
 
+/**
+ * A period abstractions, containing a start {@link Date} and an end {@link Date}
+ */
 public class Period {
 
     public Date startDate;

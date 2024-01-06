@@ -1,5 +1,8 @@
 package com.example.transportcompany.persistence.model;
 
+/**
+ * Enum, the available vehicle types and the {@link Specialisation} required for each
+ */
 public enum VehicleType {
     BUS(Specialisation.COMMERCIAL),
     TRUCK(Specialisation.DEFAULT),

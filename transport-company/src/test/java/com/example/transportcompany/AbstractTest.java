@@ -15,8 +15,11 @@ import java.sql.Date;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Map;
-import java.util.Random;
 
+/**
+ * An abstract test that defines base setup, cleanup and helper methods,
+ * as well as dependent Beans, to be used by the applications tests
+ */
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class AbstractTest {
@@ -67,7 +70,7 @@ public abstract class AbstractTest {
         );
     }
 
-    protected Request buildTestRequest(String destination) throws Request.BadRequetPropertyException {
+    protected Request buildTestRequest(String destination, Boolean isPaid) throws Request.BadRequetPropertyException {
         return new Request.RequestBuilder()
                 .client(clientService.save(new Client("a", "a", "123", "a@a.a")))
                 .company(companyService.save(new Company("Speedn't")))
@@ -77,7 +80,7 @@ public abstract class AbstractTest {
                 .status(RequestStatus.TRIAGE)
                 .requestType(RequestType.FREIGHT)
                 .freightWeight(BigDecimal.valueOf(100))
-                .invoice(new Invoice(BigDecimal.valueOf(Instant.now().getNano() / 1000), true))
+                .invoice(new Invoice(BigDecimal.valueOf(Instant.now().getNano() / 1000), isPaid))
                 .build();
     }
 }

@@ -2,9 +2,13 @@ package com.example.transportcompany.reports;
 
 import com.example.transportcompany.dto.CompanyDTO;
 import com.example.transportcompany.dto.DriverDTO;
+import com.example.transportcompany.persistence.model.Company;
 
 import java.util.List;
 
+/**
+ * An abstraction of a {@link Company} report.
+ */
 public class Report {
 
     private CompanyDTO companyInfo;
